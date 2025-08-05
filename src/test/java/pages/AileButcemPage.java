@@ -5,6 +5,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -91,5 +92,15 @@ public class AileButcemPage {
 
     }
 
+    public void bilgileriDogrulamaMethodu(String isim, String soyisim, String sehir, String yas, String meslek, String cinsiyet) throws InterruptedException {
+        Assert.assertTrue(isimkutusu.getText().equals(ConfigReader.getProperty(isim)));
+        Assert.assertTrue(soyisimkutusu.getText().equals(ConfigReader.getProperty(soyisim)));
+        Assert.assertTrue(sehirkutusu.getText().equals(ConfigReader.getProperty(sehir)));
+        Assert.assertTrue(yaskutusu.getText().equals(ConfigReader.getProperty(yas)));
+        Assert.assertTrue(meslekkutusu.getText().equals(ConfigReader.getProperty(meslek)));
+        Thread.sleep(2000);
+        Assert.assertTrue(cinsiyetkutusu.getText().equals("Kadın"));
+
+    }
 
 }

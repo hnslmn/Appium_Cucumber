@@ -7,6 +7,7 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import pages.AileButcemPage;
 import utilities.ConfigReader;
+import utilities.Driver;
 import utilities.ReusableMethods;
 
 public class AileButStepDef {
@@ -49,10 +50,12 @@ public class AileButStepDef {
         Thread.sleep(2000);
         page.bilgileriDegistirmeMethodu(isim,soyisim,sehir,yas,meslek,cinsiyet);
         Thread.sleep(2000);
+        page.bilgileriDogrulamaMethodu(isim,soyisim,sehir,yas,meslek,cinsiyet);
 
     }
     @Then("Uygulamayi kapatir")
     public void uygulamayi_kapatir() {
+        Driver.quitAppiumDriver();
 
     }
 
